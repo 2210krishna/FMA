@@ -1,0 +1,9 @@
+com/examly/springapp/exception/GlobalExceptionHandler.class
+com/examly/springapp/service/SpiceMerchantService.class
+com/examly/springapp/SpringappApplication.class
+com/examly/springapp/configuration/CorsConfiguration$1.class
+com/examly/springapp/configuration/CorsConfiguration.class
+com/examly/springapp/model/SpiceMerchant.class
+com/examly/springapp/repository/SpiceMerchantRepo.class
+com/examly/springapp/controller/SpiceMerchantController.class
+com/examly/springapp/exception/InvalidNameException.class

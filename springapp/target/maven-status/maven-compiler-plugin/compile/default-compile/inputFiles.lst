@@ -1,0 +1,15 @@
+/Users/krishnakumar/Desktop/SMFA/springapp/src/main/java/com/examly/springapp/SpringappApplication.java
+/Users/krishnakumar/Desktop/SMFA/springapp/src/main/java/com/examly/springapp/configuration/CorsConfiguration.java
+/Users/krishnakumar/Desktop/SMFA/springapp/src/main/java/com/examly/springapp/configuration/JWTUtil.java
+/Users/krishnakumar/Desktop/SMFA/springapp/src/main/java/com/examly/springapp/configuration/SecurityConfig.java
+/Users/krishnakumar/Desktop/SMFA/springapp/src/main/java/com/examly/springapp/configuration/SwaggerConfig.java
+/Users/krishnakumar/Desktop/SMFA/springapp/src/main/java/com/examly/springapp/controller/SpiceMerchantController.java
+/Users/krishnakumar/Desktop/SMFA/springapp/src/main/java/com/examly/springapp/controller/UserController.java
+/Users/krishnakumar/Desktop/SMFA/springapp/src/main/java/com/examly/springapp/exception/GlobalExceptionHandler.java
+/Users/krishnakumar/Desktop/SMFA/springapp/src/main/java/com/examly/springapp/exception/InvalidNameException.java
+/Users/krishnakumar/Desktop/SMFA/springapp/src/main/java/com/examly/springapp/model/SpiceMerchant.java
+/Users/krishnakumar/Desktop/SMFA/springapp/src/main/java/com/examly/springapp/model/User.java
+/Users/krishnakumar/Desktop/SMFA/springapp/src/main/java/com/examly/springapp/repository/SpiceMerchantRepo.java
+/Users/krishnakumar/Desktop/SMFA/springapp/src/main/java/com/examly/springapp/repository/UserRepo.java
+/Users/krishnakumar/Desktop/SMFA/springapp/src/main/java/com/examly/springapp/service/SpiceMerchantService.java
+/Users/krishnakumar/Desktop/SMFA/springapp/src/main/java/com/examly/springapp/service/UserService.java

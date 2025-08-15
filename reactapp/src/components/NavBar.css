@@ -1,0 +1,82 @@
+.navbar {
+  background-color: #700413; /* changed from #8b4513 */
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 8px rgba(112, 4, 19, 0.7);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: fixed;  /* fixed instead of sticky */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+/* To prevent page content going under fixed navbar */
+body {
+  padding-top: 68px; /* Adjust based on navbar height */
+}
+
+.navbar h2 {
+  margin: 0;
+  color: white;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  transition: 
+    background-color 0.3s ease, 
+    color 0.3s ease, 
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
+}
+
+.navbar a:hover,
+.navbar a:focus {
+  text-decoration: none;
+  background-color: #a11328; /* brighter red hover */
+  color: #ffe6e9;
+  box-shadow: 0 4px 15px rgba(161, 19, 40, 0.9);
+  outline: none;
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .navbar a {
+    display: block;
+    width: 100%;
+  }
+}

@@ -1,0 +1,78 @@
+div {
+  max-width: 900px;
+  margin: 2rem auto 2rem auto;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+/* Heading */
+h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #700413; /* changed from #4b2e05 */
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(112, 4, 19, 0.4);
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 0 12px rgba(112, 4, 19, 0.3); /* deeper shadow */
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Table header */
+thead {
+  background-color: #700413; /* changed */
+  color: white;
+}
+
+thead th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 2px solid #a11328; /* changed */
+}
+
+/* Table body rows */
+tbody tr {
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: default;
+}
+
+/* Zebra striping */
+tbody tr:nth-child(even) {
+  background-color: #f9f4ef;
+}
+
+/* Hover effect with scaling and shadow */
+tbody tr:hover {
+  background-color: #f0d9b5;
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(112, 4, 19, 0.25);
+  z-index: 1;
+}
+
+/* Table cells */
+tbody td {
+  padding: 0.75rem 1rem;
+  color: #700413; /* changed */
+}
+
+/* No data message */
+p {
+  text-align: center;
+  color: #a11328; /* changed */
+  font-weight: bold;
+  margin-top: 2rem;
+}
+.table-container {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  max-width: 900px;
+  margin: 2rem 0 2rem 2rem; /* keep left aligned or adjust as needed */
+}
