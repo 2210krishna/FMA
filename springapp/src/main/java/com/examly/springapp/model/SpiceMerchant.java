@@ -27,7 +27,6 @@ public class SpiceMerchant {
     @GeneratedValue(strategy =GenerationType.IDENTITY)
     private int id;
     private String name;
-    private String email;
     private String spices;
     private int experience;
     private String storeLocation;
