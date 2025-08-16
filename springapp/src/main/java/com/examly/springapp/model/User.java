@@ -26,20 +26,18 @@ public class User {
         TERRITORY_MANAGER,
         EVALUATOR,
         FRANCHISE_MANAGER,
-        ADMIN
+        ADMIN;
     }
        @Id
         @GeneratedValue(strategy =GenerationType.IDENTITY)
         private Long id;
         private String email;
         private String password;
-        // @JsonIgnore
-        // private String password_hash;
+    
 
         @Enumerated(EnumType.STRING)
         private Role role;
-        // private String franchise_id;
-        // private String territory ;
+       
 
 
 }

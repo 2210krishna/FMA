@@ -9,6 +9,7 @@ export default function EmployeeTable() {
     phone: "",
     role: "",
   });
+  const [search, setSearch] = useState(""); // <-- search state
 
   // Fetch all employees from backend
   const fetchEmployees = async () => {
@@ -46,9 +47,26 @@ export default function EmployeeTable() {
     }
   };
 
+  // Filter employees based on search input
+  const filteredEmployees = employees.filter(
+    (emp) =>
+      emp.name.toLowerCase().includes(search.toLowerCase()) ||
+      emp.email.toLowerCase().includes(search.toLowerCase()) ||
+      emp.role.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <div className="p-4">
       <h2>Employee Management</h2>
+
+      {/* Search filter */}
+      <input
+        type="text"
+        placeholder="Search by name, email or role..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        className="mb-3 p-2 border"
+      />
 
       {/* Form to add employee */}
       <form onSubmit={handleSubmit} className="mb-4">
@@ -102,15 +120,21 @@ export default function EmployeeTable() {
           </tr>
         </thead>
         <tbody>
-          {employees.map((emp) => (
-            <tr key={emp.id}>
-              <td>{emp.id}</td>
-              <td>{emp.name}</td>
-              <td>{emp.email}</td>
-              <td>{emp.phone}</td>
-              <td>{emp.role}</td>
+          {filteredEmployees.length > 0 ? (
+            filteredEmployees.map((emp) => (
+              <tr key={emp.id}>
+                <td>{emp.id}</td>
+                <td>{emp.name}</td>
+                <td>{emp.email}</td>
+                <td>{emp.phone}</td>
+                <td>{emp.role}</td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="5">No employees found</td>
             </tr>
-          ))}
+          )}
         </tbody>
       </table>
     </div>

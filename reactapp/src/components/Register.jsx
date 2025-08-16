@@ -14,44 +14,41 @@ export default function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (password !== confirmPassword) {
       setError("Passwords do not match");
       return;
     }
-
+  
     try {
       const res = await fetch("http://localhost:5001/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password, role }),
       });
-
-      let data = {};
-      try {
-        data = await res.json();
-      } catch {
-        data = {};
-      }
-
+  
+      const data = await res.json();
+  
       if (res.ok) {
-        // Auto-login after register
+        setSuccess(data.message || "✅ Registration successful!");
+        setError("");
+  
+        // Only auto-login for non-restricted users
         if (data.token) {
           localStorage.setItem("token", data.token);
+          localStorage.setItem("role", role);
         }
-        localStorage.setItem("role", role);
-
-        setSuccess("✅ Registration successful! Redirecting to dashboard...");
-        setError("");
-
+  
         setTimeout(() => navigate("/home"), 1500);
       } else {
+        // ❌ Show backend error (employee not found, email already exists, etc.)
         setError(data.message || "Registration failed");
       }
     } catch (err) {
       setError("Something went wrong. Please try again.");
     }
   };
+  
 
   return (
     <div style={{ maxWidth: "400px", margin: "auto", padding: "1rem" }}>
