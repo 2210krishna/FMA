@@ -17,15 +17,17 @@ export default function NavBar() {
     <nav className="navbar">
       <h2>Spice Merchant Franchise Application</h2>
       <ul>
-        {role === "GUEST" && (
-          <>
-            <li><Link to="/home">Home</Link></li>
-            <li><Link to="/apply">FranchiseDetails</Link></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/contactus">ContactUs</Link></li>
-            <li><Link to="/ourproducts">OurProducts</Link></li>
-          </>
-        )}
+          {role === "GUEST" && (
+            <>
+              <li><Link to="/home">Home</Link></li>
+              <li><Link to="/apply">FranchiseDetails</Link></li>
+              <li><Link to="/about">About</Link></li>
+              <li><Link to="/contactus">ContactUs</Link></li>
+              <li><Link to="/ourproducts">OurProducts</Link></li>
+              <li><Link to="/guest-status">Application Status</Link></li> {/* ✅ new link */}
+            </>
+          )}
+
 
         {role === "VENDOR" && (
           <>

@@ -56,5 +56,8 @@ public class SpiceMerchantService {
         return spiceMerchantRepo.findAll(pagable);
 
     }
+    public SpiceMerchant getByEmail(String email){
+        return spiceMerchantRepo.findByEmail(email);
+    }
 
 }

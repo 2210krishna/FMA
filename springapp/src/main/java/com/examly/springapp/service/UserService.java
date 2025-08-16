@@ -25,11 +25,10 @@ public class UserService {
     }
 
     public User authenticate(String email, String password) {
-        Optional<User> existingUser = userRepo.findByEmail(email);
-        if (existingUser.isPresent() && encoder.matches(password, existingUser.get().getPassword())) {
-            return existingUser.get();
+        Optional<User> latestUser = userRepo.findTopByEmailOrderByIdDesc(email);
+        if (latestUser.isPresent() && encoder.matches(password, latestUser.get().getPassword())) {
+            return latestUser.get();
         }
         return null;
     }
 }
-

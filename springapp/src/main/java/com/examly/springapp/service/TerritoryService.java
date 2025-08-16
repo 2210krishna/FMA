@@ -33,4 +33,7 @@ public class TerritoryService {
     public void deleteTerritory(int id) {
         territoryRepository.deleteById(id);
     }
+    public Territory getByEmail(String email){
+        return territoryRepository.findByEmail(email);
+    }
 }

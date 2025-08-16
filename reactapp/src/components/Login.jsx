@@ -23,7 +23,13 @@ export default function Login() {
       if (res.ok && data.token) {
         localStorage.setItem("token", data.token);
         localStorage.setItem("role", data.role);
-        localStorage.setItem("userId", data.userId); // For ApplyForm usage
+        localStorage.setItem("userId", data.userId);
+        if (data.role === "GUEST") {
+          localStorage.setItem("guestEmail", email); // ✅ store guest email
+        } else {
+          localStorage.removeItem("guestEmail"); // cleanup for non-guest
+        }
+       // For ApplyForm usage
         navigate("/home");
       } else {
         setError(data.message || "Invalid credentials");

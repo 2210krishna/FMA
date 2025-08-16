@@ -33,6 +33,7 @@ export default function TerritoryTable() {
             <th>ID</th>
             <th>Evaluator ID</th>
             <th>Name</th>
+            <th>Email</th>
             <th>Spices</th>
             <th>Experience</th>
             <th>Store Location</th>
@@ -47,6 +48,7 @@ export default function TerritoryTable() {
               <td>{t.id}</td>
               <td>{t.evaluatorId}</td>
               <td>{t.name}</td>
+              <td>{t.email}</td>
               <td>{t.spices}</td>
               <td>{t.experience}</td>
               <td>{t.storeLocation}</td>

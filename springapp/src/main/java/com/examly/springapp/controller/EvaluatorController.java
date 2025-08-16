@@ -55,6 +55,7 @@ public Evaluator evaluate(@PathVariable int id) {
     t.setStoreLocation(ev.getStoreLocation());
     t.setPhoneNumber(ev.getPhoneNumber());
     t.setEvaluatorId(ev.getId());
+    t.setEmail(ev.getEmail());
     t.setStatus(Territory.SpiceStatus.PENDING);
     territoryService.addTerritory(t);
 

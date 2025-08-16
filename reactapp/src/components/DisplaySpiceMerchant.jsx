@@ -9,7 +9,8 @@ function DisplaySpiceMerchant() {
     spices: "",
     experience: "",
     storeLocation: "",
-    phoneNumber: ""
+    phoneNumber: "",
+    email: ""  
   });
 
   useEffect(() => {
@@ -69,6 +70,7 @@ function DisplaySpiceMerchant() {
           <thead>
             <tr>
               <th>Name</th>
+              <th>Email</th>
               <th>Spices</th>
               <th>Experience</th>
               <th>Store Location</th>
@@ -89,6 +91,15 @@ function DisplaySpiceMerchant() {
                         onChange={handleChange}
                       />
                     </td>
+                    <td>
+                        <input
+                          type="text"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                        />
+                      </td>
+
                     <td>
                       <input
                         type="text"
@@ -131,6 +142,7 @@ function DisplaySpiceMerchant() {
                 ) : (
                   <>
                     <td>{m.name}</td>
+                    <td>{m.email}</td>
                     <td>{m.spices}</td>
                     <td>{m.experience}</td>
                     <td>{m.storeLocation}</td>

@@ -8,9 +8,11 @@ import org.springframework.stereotype.Repository;
 import com.examly.springapp.model.User;
 
 @Repository
-public interface UserRepo  extends JpaRepository<User,Long>{
-    
-    Optional<User> findByEmail(String email);
-    
+public interface UserRepo extends JpaRepository<User, Long> {
 
+    Optional<User> findByEmail(String email);
+
+    // Fetch the latest registered user by email
+    Optional<User> findTopByEmailOrderByIdDesc(String email);
 }
+

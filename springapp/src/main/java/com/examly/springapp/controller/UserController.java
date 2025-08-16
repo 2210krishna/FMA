@@ -45,8 +45,9 @@ public ResponseEntity<?> registerUser(@RequestBody User user) {
         }
     }
 
-    // Prevent duplicate registration
-    if (userRepository.findByEmail(user.getEmail()).isPresent()) {
+    // Prevent duplicate registration (EXCEPT Vendor)
+    boolean userExists = userRepository.findByEmail(user.getEmail()).isPresent();
+    if (userExists && !role.equals("VENDOR")) {
         return ResponseEntity.badRequest().body(Map.of("message", "❌ User already registered. Please login."));
     }
 
@@ -59,6 +60,7 @@ public ResponseEntity<?> registerUser(@RequestBody User user) {
     // Return success message
     return ResponseEntity.ok(Map.of("message", "✅ User registered successfully as " + role));
 }
+
 
     @PostMapping("/login")
     public Map<String, Object> login(@RequestBody User user) {

@@ -32,6 +32,7 @@ export default function EvaluatorTable() {
           <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>Email</th>
             <th>Spices</th>
             <th>Experience</th>
             <th>Store Location</th>
@@ -45,6 +46,7 @@ export default function EvaluatorTable() {
             <tr key={e.id}>
               <td>{e.id}</td>
               <td>{e.name}</td>
+              <td>{e.email}</td>
               <td>{e.spices}</td>
               <td>{e.experience}</td>
               <td>{e.storeLocation}</td>

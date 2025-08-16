@@ -18,6 +18,7 @@ public class Evaluator {
     private int id;
 
     private String name;
+    private String email;   
     private String spices;
     private int experience;
     private String storeLocation;

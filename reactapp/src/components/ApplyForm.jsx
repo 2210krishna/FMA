@@ -7,7 +7,8 @@ function ApplyForm() {
     spices: "",
     experience: "",
     storeLocation: "",
-    phoneNumber: ""
+    phoneNumber: "",
+    email: ""
   });
 
   const [errors, setErrors] = useState({});
@@ -25,7 +26,9 @@ function ApplyForm() {
 
     if (!formData.name) newErrors.name = "Name is required";
     else if (!namePattern.test(formData.name.trim())) newErrors.name = "Name must not contain special characters or numbers";
-
+    if (!formData.email) newErrors.email = "Email is required";
+    else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = "Invalid email format";
+    
     if (!formData.spices) newErrors.spices = "Spices are required";
     if (!formData.experience) newErrors.experience = "Experience is required";
     if (!formData.storeLocation) newErrors.storeLocation = "Store location is required";
@@ -50,7 +53,7 @@ function ApplyForm() {
         body: JSON.stringify(formData)
       });
       setSuccessMessage("Application submitted successfully!");
-      setFormData({ name: "", spices: "", experience: "", storeLocation: "", phoneNumber: "" });
+      setFormData({ name: "", spices: "", experience: "", storeLocation: "", phoneNumber: "",email: "" });
     } catch (err) {
       console.error(err);
     }
@@ -63,7 +66,14 @@ function ApplyForm() {
         <label>Name:</label>
         <input name="name" value={formData.name} onChange={handleChange} placeholder="Enter your Name" />
         {errors.name && <p className="error">{errors.name}</p>}
-
+        <label>Email:</label>
+        <input
+        name="email"
+        value={formData.email}
+        onChange={handleChange}
+        placeholder="Enter email"
+        />
+        {errors.email && <p className="error">{errors.email}</p>}
         <label>Spices:</label>
         <input name="spices" value={formData.spices} onChange={handleChange} placeholder="Enter spices, comma separated" />
         {errors.spices && <p className="error">{errors.spices}</p>}

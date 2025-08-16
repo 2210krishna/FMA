@@ -41,6 +41,7 @@ public Territory accept(@PathVariable int id) {
     sm.setExperience(t.getExperience());
     sm.setStoreLocation(t.getStoreLocation());
     sm.setPhoneNumber(t.getPhoneNumber());
+    sm.setEmail(t.getEmail());
     spiceMerchantService.addSpiceMerchant(sm);
 
     return t;

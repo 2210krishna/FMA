@@ -8,5 +8,6 @@ import java.util.List;
 @Repository
 public interface EvaluatorRepository extends JpaRepository<Evaluator, Integer> {
     List<Evaluator> findByStatus(Evaluator.Status status);
-    List<Evaluator> findByGuestId(Long guestId); // fetch guest’s own applications
+    List<Evaluator> findByGuestId(Long guestId);
+    Evaluator findByEmail(String email); 
 }

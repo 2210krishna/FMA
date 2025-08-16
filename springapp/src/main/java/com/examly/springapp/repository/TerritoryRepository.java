@@ -8,5 +8,6 @@ import java.util.List;
 @Repository
 public interface TerritoryRepository extends JpaRepository<Territory, Integer> {
     List<Territory> findByStatus(Territory.SpiceStatus status);
+    Territory findByEmail(String email);
 }
 

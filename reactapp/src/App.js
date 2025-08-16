@@ -16,6 +16,7 @@ import Register from "./components/Register";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Welcome from "./components/WelcomePage";
 import EmployeeTable from "./components/EmployeeTable";
+import GuestStatus from "./components/GuestStatus"; // ✅ add this import
 
 function AppContent() {
   const location = useLocation();
@@ -80,11 +81,16 @@ function AppContent() {
   
         }/>
           <Route path="/employees" element={
-    <ProtectedRoute allowedRoles={["ADMIN"]}>
-      <EmployeeTable />
-    </ProtectedRoute>
-  }/>
-      </Routes>
+        <ProtectedRoute allowedRoles={["ADMIN"]}>
+          <EmployeeTable />
+        </ProtectedRoute>
+        }/>
+        <Route path="/guest-status" element={
+        <ProtectedRoute allowedRoles={["GUEST"]}>
+          <GuestStatus />
+        </ProtectedRoute>
+        }/>
+          </Routes>
 
       {isLoggedIn && !["/", "/login", "/register"].includes(location.pathname) && <Footer />}
     </div>

@@ -8,7 +8,5 @@ import com.examly.springapp.model.SpiceMerchant;
 @Repository
 public interface SpiceMerchantRepo  extends JpaRepository<SpiceMerchant,Integer>
 {
-
-
-
+    SpiceMerchant findByEmail(String email);
 }

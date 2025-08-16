@@ -36,5 +36,7 @@ public class EvaluatorService {
         return evaluatorRepository.findById(id)
             .orElseThrow(() -> new RuntimeException("Evaluator not found with id " + id));
     }
-    
+    public Evaluator getByEmail(String email){
+        return evaluatorRepository.findByEmail(email);
+    }
 }
