@@ -56,6 +56,7 @@ export default function NavBar() {
           <>
             <li><Link to="/home">Home</Link></li>
             <li><Link to="/getAllSpiceMerchants">Spice Merchant Details</Link></li>
+            <li><Link to="/employees">Employee Management</Link></li>
           </>
         )}
 
