@@ -1,0 +1,107 @@
+/* Container wrapping the table - center and space below navbar */
+.evaluator-container {
+    max-width: 1100px;
+    margin: 4rem auto 2rem auto; /* space from top and auto horizontal centering */
+    padding: 0 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+  }
+  
+  /* Table styles inside this container */
+  .evaluator-container table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+    font-size: 15px;
+  }
+  
+  /* Header row */
+  .evaluator-container thead tr {
+    background: linear-gradient(135deg, #ff9800, #ffb347);
+    color: white;
+    font-weight: 700;
+    text-align: left;
+  }
+  
+  /* Cells */
+  .evaluator-container th,
+  .evaluator-container td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e0e0e0;
+    vertical-align: middle;
+  }
+  
+  /* Hover highlight on rows */
+  .evaluator-container tbody tr:hover {
+    background: #fff3e0;
+    cursor: pointer;
+  }
+  
+  /* Remove border bottom on last row */
+  .evaluator-container tbody tr:last-child td {
+    border-bottom: none;
+  }
+  
+  /* Style buttons */
+  .evaluator-container button {
+    background: linear-gradient(135deg, #4caf50, #81c784);
+    border: none;
+    color: white;
+    padding: 8px 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    white-space: nowrap;
+  }
+  
+  .evaluator-container button:hover {
+    background: linear-gradient(135deg, #388e3c, #5daa39);
+    transform: translateY(-2px);
+  }
+  
+  /* Responsive Table: optional */
+  @media (max-width: 768px) {
+    .evaluator-container table,
+    .evaluator-container thead,
+    .evaluator-container tbody,
+    .evaluator-container th,
+    .evaluator-container td,
+    .evaluator-container tr {
+      display: block;
+    }
+    .evaluator-container thead tr {
+      display: none;
+    }
+    .evaluator-container tbody tr {
+      margin-bottom: 1.5rem;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      padding: 1rem;
+      background: white;
+    }
+    .evaluator-container tbody td {
+      position: relative;
+      padding-left: 50%;
+      text-align: left;
+      border: none;
+      border-bottom: 1px solid #eee;
+    }
+    .evaluator-container tbody td:last-child {
+      border-bottom: none;
+    }
+    .evaluator-container tbody td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: 700;
+      color: #ff9800;
+      white-space: nowrap;
+    }
+  }
+  

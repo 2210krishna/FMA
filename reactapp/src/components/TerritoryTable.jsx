@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./TerritoryTable.css";
 
 export default function TerritoryTable() {
   const [territories, setTerritories] = useState([]);
@@ -25,9 +26,9 @@ export default function TerritoryTable() {
   };
 
   return (
-    <div>
+    <div className="territory-table-container">
       <h2>Territory Table - Pending Applications</h2>
-      <table border="1" cellPadding="8">
+      <table>
         <thead>
           <tr>
             <th>ID</th>
@@ -45,16 +46,16 @@ export default function TerritoryTable() {
         <tbody>
           {territories.map((t) => (
             <tr key={t.id}>
-              <td>{t.id}</td>
-              <td>{t.evaluatorId}</td>
-              <td>{t.name}</td>
-              <td>{t.email}</td>
-              <td>{t.spices}</td>
-              <td>{t.experience}</td>
-              <td>{t.storeLocation}</td>
-              <td>{t.phoneNumber}</td>
-              <td>{t.status}</td>
-              <td>
+              <td data-label="ID">{t.id}</td>
+              <td data-label="Evaluator ID">{t.evaluatorId}</td>
+              <td data-label="Name">{t.name}</td>
+              <td data-label="Email">{t.email}</td>
+              <td data-label="Spices">{t.spices}</td>
+              <td data-label="Experience">{t.experience}</td>
+              <td data-label="Store Location">{t.storeLocation}</td>
+              <td data-label="Phone">{t.phoneNumber}</td>
+              <td data-label="Status">{t.status}</td>
+              <td data-label="Action">
                 <button onClick={() => handleAccept(t.id)}>Accept</button>
               </td>
             </tr>

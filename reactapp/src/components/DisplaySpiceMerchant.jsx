@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import './DisplaySpiceMerchant.css';
 
 function DisplaySpiceMerchant() {
   const [merchants, setMerchants] = useState([]);
@@ -53,14 +54,14 @@ function DisplaySpiceMerchant() {
   };
 
   return (
-    <div>
+    <div className="display-spice-container">
       <h2>Spice Merchant Applications</h2>
       <input
         type="text"
         placeholder="Search by name, spice, or location"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        style={{ marginBottom: "10px", padding: "5px", width: "300px" }}
+        className="search-input"
       />
 
       {filteredMerchants.length > 0 ? (
@@ -81,60 +82,15 @@ function DisplaySpiceMerchant() {
               <tr key={m.id}>
                 {editingMerchant === m.id ? (
                   <>
-                    <td>
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                      />
-                    </td>
-                    <td>
-                        <input
-                          type="text"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleChange}
-                        />
-                      </td>
-
-                    <td>
-                      <input
-                        type="text"
-                        name="spices"
-                        value={formData.spices}
-                        onChange={handleChange}
-                      />
-                    </td>
-                    <td>
-                      <input
-                        type="text"
-                        name="experience"
-                        value={formData.experience}
-                        onChange={handleChange}
-                      />
-                    </td>
-                    <td>
-                      <input
-                        type="text"
-                        name="storeLocation"
-                        value={formData.storeLocation}
-                        onChange={handleChange}
-                      />
-                    </td>
-                    <td>
-                      <input
-                        type="text"
-                        name="phoneNumber"
-                        value={formData.phoneNumber}
-                        onChange={handleChange}
-                      />
-                    </td>
+                    <td><input type="text" name="name" value={formData.name} onChange={handleChange} /></td>
+                    <td><input type="text" name="email" value={formData.email} onChange={handleChange} /></td>
+                    <td><input type="text" name="spices" value={formData.spices} onChange={handleChange} /></td>
+                    <td><input type="text" name="experience" value={formData.experience} onChange={handleChange} /></td>
+                    <td><input type="text" name="storeLocation" value={formData.storeLocation} onChange={handleChange} /></td>
+                    <td><input type="text" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} /></td>
                     <td>
                       <button onClick={handleUpdate}>Save</button>
-                      <button onClick={() => setEditingMerchant(null)}>
-                        Cancel
-                      </button>
+                      <button onClick={() => setEditingMerchant(null)}>Cancel</button>
                     </td>
                   </>
                 ) : (
@@ -145,9 +101,7 @@ function DisplaySpiceMerchant() {
                     <td>{m.experience}</td>
                     <td>{m.storeLocation}</td>
                     <td>{m.phoneNumber}</td>
-                    <td>
-                      <button onClick={() => handleEdit(m)}>Edit</button>
-                    </td>
+                    <td><button onClick={() => handleEdit(m)}>Edit</button></td>
                   </>
                 )}
               </tr>

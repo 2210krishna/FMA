@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import './EvaluatorTable.css';
 
 export default function EvaluatorTable() {
   const [evaluators, setEvaluators] = useState([]);
@@ -25,7 +26,7 @@ export default function EvaluatorTable() {
   };
 
   return (
-    <div>
+    <div className="evaluator-container">
       <h2>Evaluator Table - Pending Applications</h2>
       <table border="1" cellPadding="8">
         <thead>
@@ -42,22 +43,23 @@ export default function EvaluatorTable() {
           </tr>
         </thead>
         <tbody>
-          {evaluators.map((e) => (
-            <tr key={e.id}>
-              <td>{e.id}</td>
-              <td>{e.name}</td>
-              <td>{e.email}</td>
-              <td>{e.spices}</td>
-              <td>{e.experience}</td>
-              <td>{e.storeLocation}</td>
-              <td>{e.phoneNumber}</td>
-              <td>{e.status}</td>
-              <td>
-                <button onClick={() => handleApprove(e.id)}>Approve</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
+        {evaluators.map((e) => (
+          <tr key={e.id}>
+            <td data-label="ID">{e.id}</td>
+            <td data-label="Name">{e.name}</td>
+            <td data-label="Email">{e.email}</td>
+            <td data-label="Spices">{e.spices}</td>
+            <td data-label="Experience">{e.experience}</td>
+            <td data-label="Store Location">{e.storeLocation}</td>
+            <td data-label="Phone">{e.phoneNumber}</td>
+            <td data-label="Status">{e.status}</td>
+            <td data-label="Action">
+              <button onClick={() => handleApprove(e.id)}>Approve</button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+
       </table>
     </div>
   );
