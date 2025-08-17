@@ -22,7 +22,8 @@ body{
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  /* background-image: linear-gradient(to bottom,rgba(240, 179, 179, 0.844),rgba(247, 218, 218, 0.131)),url('./assets/spice4.png'); */
+  background: #fffaf0;
+  /* background-image: linear-gradient(to bottom,rgba(240, 179, 179, 0.844),rgba(247, 218, 218, 0.131)),url('./assets/spice4.png');  */
   background-position:center ;
   background-size: cover;
   background-repeat: no-repeat;

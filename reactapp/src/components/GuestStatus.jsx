@@ -1,6 +1,6 @@
-// GuestStatus.js
-import React, { useEffect, useState } from "react";
 
+import React, { useEffect, useState } from "react";
+import './GuestStatus.css';
 export default function GuestStatus() {
   const [status, setStatus] = useState("");
   const email = localStorage.getItem("guestEmail");
@@ -20,7 +20,7 @@ export default function GuestStatus() {
   }
 
   return (
-    <div className="container mt-5">
+    <div className="container">
       <h2>Application Status</h2>
       <p><strong>Email:</strong> {email}</p>
       <p><strong>Status:</strong> {status}</p>

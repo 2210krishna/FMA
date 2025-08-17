@@ -29,14 +29,12 @@ public class UserController {
     private EmployeeRepository employeeRepository;
 
     @Autowired
-private PasswordEncoder passwordEncoder; // Add this
+private PasswordEncoder passwordEncoder; 
 
 @PostMapping("/register")
 public ResponseEntity<?> registerUser(@RequestBody User user) {
-    // Get role name as string
     String role = user.getRole().name().toUpperCase();
 
-    // Check email in employee table only for restricted roles
     if (role.equals("EVALUATOR") || role.equals("TERRITORY_MANAGER") || role.equals("FRANCHISE_MANAGER")) {
         boolean existsInEmployee = employeeRepository.findByEmail(user.getEmail()).isPresent();
         if (!existsInEmployee) {
@@ -45,19 +43,15 @@ public ResponseEntity<?> registerUser(@RequestBody User user) {
         }
     }
 
-    // Prevent duplicate registration (EXCEPT Vendor)
     boolean userExists = userRepository.findByEmail(user.getEmail()).isPresent();
     if (userExists && !role.equals("VENDOR")) {
         return ResponseEntity.badRequest().body(Map.of("message", "❌ User already registered. Please login."));
     }
 
-    // Encode the password before saving
     user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-    // Save user
     userRepository.save(user);
 
-    // Return success message
     return ResponseEntity.ok(Map.of("message", "✅ User registered successfully as " + role));
 }
 

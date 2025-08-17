@@ -4,7 +4,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #700413; /* dark brown */
+  background: linear-gradient(135deg, #ff9800, #ff7b00);
   color: white;
   text-align: center;
   padding: 1rem 0;

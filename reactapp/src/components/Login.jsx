@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Login.css";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -25,11 +26,10 @@ export default function Login() {
         localStorage.setItem("role", data.role);
         localStorage.setItem("userId", data.userId);
         if (data.role === "GUEST") {
-          localStorage.setItem("guestEmail", email); // ✅ store guest email
+          localStorage.setItem("guestEmail", email);
         } else {
-          localStorage.removeItem("guestEmail"); // cleanup for non-guest
+          localStorage.removeItem("guestEmail");
         }
-       // For ApplyForm usage
         navigate("/home");
       } else {
         setError(data.message || "Invalid credentials");
@@ -40,59 +40,51 @@ export default function Login() {
   };
 
   return (
-    <div style={{ maxWidth: "400px", margin: "auto", padding: "1rem" }}>
-      <h2>Login</h2>
+    <div className="login-page">
+      <div className="login-card">
+        <h2 className="login-header">Login</h2>
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
+        {error && <p className="login-error">{error}</p>}
+        <form onSubmit={handleSubmit} className="login-form">
+          <table className="login-table">
+            <tbody>
+              <tr>
+                <td><label>Email:</label></td>
+                <td>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    className="form-input"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><label>Password:</label></td>
+                <td>
+                  <input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                    className="form-input"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
-      <form onSubmit={handleSubmit}>
-        {/* Email */}
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            style={{ width: "100%", padding: "8px", margin: "5px 0" }}
-          />
+          <button type="submit" className="btn btn-login">
+            Login
+          </button>
+        </form>
+
+        <div className="back-btn-container">
+          <button onClick={() => navigate("/")} className="btn btn-back">
+            🔙 Back
+          </button>
         </div>
-
-        {/* Password */}
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            style={{ width: "100%", padding: "8px", margin: "5px 0" }}
-          />
-        </div>
-
-        {/* Login Button */}
-        <button
-          type="submit"
-          style={{ padding: "8px 16px", marginTop: "10px", cursor: "pointer" }}
-        >
-          Login
-        </button>
-      </form>
-
-      {/* Back Button */}
-      <div style={{ marginTop: "1rem" }}>
-        <button
-          onClick={() => navigate("/")}
-          style={{
-            padding: "8px 16px",
-            fontSize: "14px",
-            background: "#ccc",
-            border: "none",
-            cursor: "pointer",
-          }}
-        >
-          🔙 Back
-        </button>
       </div>
     </div>
   );

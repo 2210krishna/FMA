@@ -1,0 +1,127 @@
+/* Ensure full screen */
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Background wrapper */
+  .register-page {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff8c00, #ffcc80);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Card */
+  .register-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 450px;
+    animation: fadeInUp 0.6s ease;
+  }
+  
+  /* Header */
+  .register-header {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #4b2e05;
+  }
+  
+  /* Messages */
+  .register-error {
+    color: #e63946;
+    background: rgba(255, 0, 0, 0.1);
+    padding: 8px;
+    border-radius: 6px;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .register-success {
+    color: #2a9d8f;
+    background: rgba(42, 157, 143, 0.1);
+    padding: 8px;
+    border-radius: 6px;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  /* Table layout for form */
+  .register-table {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+  
+  .register-table td {
+    padding: 10px 8px;
+    vertical-align: middle;
+  }
+  
+  .register-table label {
+    font-weight: 600;
+    color: #333;
+    white-space: nowrap;
+  }
+  
+  /* Inputs */
+  .form-input, select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.3s;
+  }
+  
+  .form-input:focus, select:focus {
+    border-color: #ff9800;
+    box-shadow: 0 0 6px rgba(255,152,0,0.4);
+    outline: none;
+  }
+  
+  /* Buttons */
+  .btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  .btn-register {
+    background: linear-gradient(135deg, #ff9800, #ff7b00);
+    color: #fff;
+  }
+  
+  .btn-register:hover {
+    background: linear-gradient(135deg, #e67e00, #ff9800);
+  }
+  
+  .btn-back {
+    background: #ddd;
+    color: #333;
+  }
+  
+  .btn-back:hover {
+    background: #bbb;
+  }
+  
+  /* Animation */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  

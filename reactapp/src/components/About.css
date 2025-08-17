@@ -1,41 +1,72 @@
-.about-container {
-    max-width: 900px;
-    margin: 3rem auto;
-    padding: 1rem;
-    color: #333;
-    font-family: Arial, sans-serif;
-  }
-  
-  .about-container h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-    color: #fff; /* Keeps heading visible on bg image */
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
-  }
-  
-  .about-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: white; /* White table without disturbing bg image */
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
-  }
-  
-  .about-table th {
-    background-color: #a11328; /* Spice color tone */
-    color: white;
-    padding: 1rem;
-    text-align: left;
-    width: 25%;
-  }
-  
-  .about-table td {
-    padding: 1rem;
-    line-height: 1.5;
-  }
-  
-  .about-table tr:nth-child(even) td {
-    background-color: #fdf6f0;
-  }
-  
+/* Full page styling */
+.about-page {
+  width: 100vw;
+  min-height: calc(100vh - 60px); /* adjust for navbar height */
+  background: linear-gradient(135deg, #ffedd5, #fff8e1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 3rem 2rem;
+  text-align: center;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Title */
+.about-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #4b2e05;
+}
+
+/* Intro paragraph */
+.about-intro {
+  font-size: 18px;
+  max-width: 800px;
+  color: #333;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* Section cards */
+.about-sections {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.8rem;
+  max-width: 1000px;
+}
+
+/* Individual card */
+.about-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.8rem;
+  flex: 1;
+  min-width: 260px;
+  max-width: 310px;
+  text-align: left;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Heading */
+.about-card h3 {
+  margin-bottom: 0.8rem;
+  font-size: 20px;
+  color: #ff7b00;
+}
+
+/* Paragraph */
+.about-card p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* Hover effect */
+.about-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.2);
+}

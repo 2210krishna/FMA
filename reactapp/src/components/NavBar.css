@@ -1,82 +1,71 @@
+/* Main navbar */
 .navbar {
-  background-color: #700413; /* changed from #8b4513 */
-  color: white;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 3px 8px rgba(112, 4, 19, 0.7);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  position: fixed;  /* fixed instead of sticky */
+  position: fixed; 
   top: 0;
   left: 0;
-  right: 0;
+  width: 100vw;            /* Always full width */
+  height: 60px;
+  background: linear-gradient(135deg, #ff9800, #ff7b00);
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* title left, menu right */
+  padding: 0 2rem;
   z-index: 1000;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* To prevent page content going under fixed navbar */
-body {
-  padding-top: 68px; /* Adjust based on navbar height */
-}
-
-.navbar h2 {
+/* Title */
+.navbar-left h2 {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
   margin: 0;
-  color: white;
-  font-size: 1.8rem;
-  letter-spacing: 1px;
-  font-weight: 700;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+  white-space: nowrap;
 }
 
-.navbar ul {
+/* Right side menu */
+.navbar-right ul {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  align-items: center;
+  gap: 1.3rem;
   margin: 0;
   padding: 0;
 }
 
-.navbar a {
-  color: white;
+/* Menu links */
+.navbar-right ul li a {
+  color: #fff;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 1.1rem;
-  padding: 0.3rem 0.6rem;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-right ul li a:hover {
+  color: #333;
+}
+
+/* Logout button */
+.logout-btn {
+  background: #fff;
+  color: #ff7b00;
+  border: none;
+  padding: 6px 14px;
   border-radius: 6px;
-  transition: 
-    background-color 0.3s ease, 
-    color 0.3s ease, 
-    transform 0.2s ease,
-    box-shadow 0.3s ease;
-}
-
-.navbar a:hover,
-.navbar a:focus {
-  text-decoration: none;
-  background-color: #a11328; /* brighter red hover */
-  color: #ffe6e9;
-  box-shadow: 0 4px 15px rgba(161, 19, 40, 0.9);
-  outline: none;
+  font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
-  transform: scale(1.05);
+  transition: all 0.3s ease;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
-  }
+.logout-btn:hover {
+  background: #fce2c6;
+  color: #e67e00;
+}
 
-  .navbar ul {
-    flex-direction: column;
-    gap: 0.5rem;
-    width: 100%;
-  }
-
-  .navbar a {
-    display: block;
-    width: 100%;
-  }
+/* Push down body content below navbar */
+body {
+  padding-top: 60px;
 }

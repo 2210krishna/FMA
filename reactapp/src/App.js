@@ -16,8 +16,7 @@ import Register from "./components/Register";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Welcome from "./components/WelcomePage";
 import EmployeeTable from "./components/EmployeeTable";
-import GuestStatus from "./components/GuestStatus"; // ✅ add this import
-
+import GuestStatus from "./components/GuestStatus";
 function AppContent() {
   const location = useLocation();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -29,16 +28,12 @@ function AppContent() {
 
   return (
     <div className="app">
-      {/* Show NavBar only if logged in */}
       {isLoggedIn && !["/", "/login", "/register"].includes(location.pathname) && <NavBar />}
 
       <Routes>
-        {/* Public Routes */}
         <Route path="/" element={<Welcome />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-
-        {/* Protected Routes */}
         <Route path="/home" element={
           <ProtectedRoute allowedRoles={["GUEST","VENDOR","ADMIN","TERRITORY_MANAGER","EVALUATOR","FRANCHISE_MANAGER"]}>
             <Home />

@@ -55,8 +55,6 @@ function DisplaySpiceMerchant() {
   return (
     <div>
       <h2>Spice Merchant Applications</h2>
-
-      {/* Search input */}
       <input
         type="text"
         placeholder="Search by name, spice, or location"

@@ -16,13 +16,7 @@ import jakarta.persistence.Enumerated;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SpiceMerchant {
-    // enum Status{
-    //     Submited,
-    //     Under_Review,
-    //     Approved,
-    //     Rejected,
-    //     Pending
-    // }
+  
     @Id
     @GeneratedValue(strategy =GenerationType.IDENTITY)
     private int id;
@@ -32,8 +26,7 @@ public class SpiceMerchant {
     private int experience;
     private String storeLocation;
     private String phoneNumber;
-    // @Enumerated(EnumType.STRING)
-    // private Status status;
+   
 
 
 }
