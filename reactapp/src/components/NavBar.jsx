@@ -37,6 +37,7 @@ export default function NavBar() {
               <li><Link to="/apply">FranchiseDetails</Link></li>
               <li><Link to="/about">About</Link></li>
               <li><Link to="/ourproducts">OurProducts</Link></li>
+              <li><Link to="/vendor-details">Myfranchise</Link></li>
             </>
           )}
 

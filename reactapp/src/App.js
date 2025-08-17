@@ -17,6 +17,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Welcome from "./components/WelcomePage";
 import EmployeeTable from "./components/EmployeeTable";
 import GuestStatus from "./components/GuestStatus";
+import VendorDetails from "./components/VendorDetails";
 function AppContent() {
   const location = useLocation();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -85,7 +86,14 @@ function AppContent() {
           <GuestStatus />
         </ProtectedRoute>
         }/>
+        <Route path="/vendor-details" element={
+        <ProtectedRoute allowedRoles={["VENDOR"]}>
+          <VendorDetails />
+        </ProtectedRoute>
+        }/>
+
           </Routes>
+          
 
       {isLoggedIn && !["/", "/login", "/register"].includes(location.pathname) && <Footer />}
     </div>

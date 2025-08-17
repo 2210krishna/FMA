@@ -1,5 +1,5 @@
-// src/components/Employee.js
 import React, { useState, useEffect } from "react";
+import './EmployeeTable.css';
 
 export default function EmployeeTable() {
   const [employees, setEmployees] = useState([]);
@@ -9,9 +9,9 @@ export default function EmployeeTable() {
     phone: "",
     role: "",
   });
-  const [search, setSearch] = useState(""); // <-- search state
+  const [search, setSearch] = useState("");
 
-  // Fetch all employees from backend
+  // Fetch all employees
   const fetchEmployees = async () => {
     try {
       const res = await fetch("http://localhost:5001/employees");
@@ -26,12 +26,10 @@ export default function EmployeeTable() {
     fetchEmployees();
   }, []);
 
-  // Handle form input
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Add new employee
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -41,13 +39,13 @@ export default function EmployeeTable() {
         body: JSON.stringify(formData),
       });
       setFormData({ name: "", email: "", phone: "", role: "" });
-      fetchEmployees(); // refresh list
+      fetchEmployees();
     } catch (err) {
       console.error("Error adding employee:", err);
     }
   };
 
-  // Filter employees based on search input
+  // Filter employees by search
   const filteredEmployees = employees.filter(
     (emp) =>
       emp.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -56,20 +54,20 @@ export default function EmployeeTable() {
   );
 
   return (
-    <div className="p-4">
+    <div className="employee-container">
       <h2>Employee Management</h2>
 
-      {/* Search filter */}
+      {/* Search Input */}
       <input
         type="text"
         placeholder="Search by name, email or role..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="mb-3 p-2 border"
+        className="search-input"
       />
 
-      {/* Form to add employee */}
-      <form onSubmit={handleSubmit} className="mb-4">
+      {/* Add Employee Form */}
+      <form onSubmit={handleSubmit} className="add-form">
         <input
           type="text"
           name="name"
@@ -77,7 +75,7 @@ export default function EmployeeTable() {
           value={formData.name}
           onChange={handleChange}
           required
-        />{" "}
+        />
         <input
           type="email"
           name="email"
@@ -85,7 +83,7 @@ export default function EmployeeTable() {
           value={formData.email}
           onChange={handleChange}
           required
-        />{" "}
+        />
         <input
           type="text"
           name="phone"
@@ -93,7 +91,7 @@ export default function EmployeeTable() {
           value={formData.phone}
           onChange={handleChange}
           required
-        />{" "}
+        />
         <select
           name="role"
           value={formData.role}
@@ -104,12 +102,12 @@ export default function EmployeeTable() {
           <option value="EVALUATOR">Evaluator</option>
           <option value="TERRITORY_MANAGER">Territory Manager</option>
           <option value="FRANCHISE_MANAGER">Franchise Manager</option>
-        </select>{" "}
+        </select>
         <button type="submit">Add Employee</button>
       </form>
 
-      {/* Employee list */}
-      <table border="1" cellPadding="8">
+      {/* Employees Table */}
+      <table>
         <thead>
           <tr>
             <th>ID</th>
@@ -123,11 +121,11 @@ export default function EmployeeTable() {
           {filteredEmployees.length > 0 ? (
             filteredEmployees.map((emp) => (
               <tr key={emp.id}>
-                <td>{emp.id}</td>
-                <td>{emp.name}</td>
-                <td>{emp.email}</td>
-                <td>{emp.phone}</td>
-                <td>{emp.role}</td>
+                <td data-label="ID">{emp.id}</td>
+                <td data-label="Name">{emp.name}</td>
+                <td data-label="Email">{emp.email}</td>
+                <td data-label="Phone">{emp.phone}</td>
+                <td data-label="Role">{emp.role}</td>
               </tr>
             ))
           ) : (
