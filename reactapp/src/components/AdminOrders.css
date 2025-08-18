@@ -1,0 +1,154 @@
+.admin-orders-container, .p-4 {
+    padding-top: 60px; /* adjust if your navbar has a different height */
+    max-width: 900px;
+    margin: 0 auto 3rem auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background: #fffaf0;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    min-height: calc(100vh - 60px);
+  }
+  
+  .admin-orders-container h2,
+  .p-4 h2 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #4b2e05;
+    margin-bottom: 1.5rem;
+  }
+  
+  .admin-orders-container table,
+  .p-4 table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+    font-size: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin: 0 auto;
+  }
+  
+  .admin-orders-container thead tr,
+  .p-4 thead tr {
+    background: linear-gradient(135deg, #ff9800, #ffb347);
+    color: white;
+    font-weight: 700;
+    text-align: left;
+  }
+  
+  .admin-orders-container th,
+  .admin-orders-container td,
+  .p-4 th,
+  .p-4 td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e0e0e0;
+    vertical-align: middle;
+    text-align: left;
+  }
+  
+  .admin-orders-container tbody tr:hover,
+  .p-4 tbody tr:hover {
+    background: #fff3e0;
+    cursor: pointer;
+  }
+  
+  .admin-orders-container tbody tr:last-child td,
+  .p-4 tbody tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .admin-orders-container button,
+  .p-4 button {
+    background: linear-gradient(135deg, #4caf50, #81c784);
+    border: none;
+    color: white;
+    padding: 7px 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    white-space: nowrap;
+  }
+  
+  .admin-orders-container button:hover,
+  .p-4 button:hover {
+    background: linear-gradient(135deg, #388e3c, #5daa39);
+    transform: translateY(-2px);
+  }
+  
+  .admin-orders-container p,
+  .p-4 p {
+    font-size: 18px;
+    color: #999;
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .admin-orders-container,
+    .p-4 {
+      margin: 2rem 1rem 3rem 1rem;
+    }
+  
+    .admin-orders-container table,
+    .admin-orders-container thead,
+    .admin-orders-container tbody,
+    .admin-orders-container th,
+    .admin-orders-container td,
+    .admin-orders-container tr,
+    .p-4 table,
+    .p-4 thead,
+    .p-4 tbody,
+    .p-4 th,
+    .p-4 td,
+    .p-4 tr {
+      display: block;
+    }
+  
+    .admin-orders-container thead tr,
+    .p-4 thead tr {
+      display: none;
+    }
+  
+    .admin-orders-container tbody tr,
+    .p-4 tbody tr {
+      margin-bottom: 1.2rem;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      padding: 0.8rem;
+      background: white;
+    }
+  
+    .admin-orders-container tbody td,
+    .p-4 tbody td {
+      position: relative;
+      padding-left: 48%;
+      text-align: left;
+      border: none;
+      border-bottom: 1px solid #eee;
+    }
+  
+    .admin-orders-container tbody td:last-child,
+    .p-4 tbody td:last-child {
+      border-bottom: none;
+    }
+  
+    .admin-orders-container tbody td::before,
+    .p-4 tbody td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: 700;
+      color: #ff9800;
+      white-space: nowrap;
+    }
+  }
+  

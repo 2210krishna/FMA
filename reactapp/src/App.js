@@ -18,6 +18,8 @@ import Welcome from "./components/WelcomePage";
 import EmployeeTable from "./components/EmployeeTable";
 import GuestStatus from "./components/GuestStatus";
 import VendorDetails from "./components/VendorDetails";
+import VendorOrders from "./components/VendorOrders";
+import AdminOrders from "./components/AdminOrders";
 function AppContent() {
   const location = useLocation();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -91,6 +93,23 @@ function AppContent() {
           <VendorDetails />
         </ProtectedRoute>
         }/>
+            <Route
+      path="/vendor-orders"
+      element={
+        <ProtectedRoute allowedRoles={["VENDOR"]}>
+          <VendorOrders/>
+        </ProtectedRoute>
+      }
+    />
+
+    <Route
+      path="/admin-orders"
+      element={
+        <ProtectedRoute allowedRoles={["ADMIN"]}>
+          <AdminOrders />
+        </ProtectedRoute>
+  }
+/>
 
           </Routes>
           

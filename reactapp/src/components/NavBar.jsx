@@ -38,6 +38,7 @@ export default function NavBar() {
               <li><Link to="/about">About</Link></li>
               <li><Link to="/ourproducts">OurProducts</Link></li>
               <li><Link to="/vendor-details">Myfranchise</Link></li>
+              <li><Link to="/vendor-orders">Orders</Link></li> 
             </>
           )}
 
@@ -62,6 +63,7 @@ export default function NavBar() {
               <li><Link to="/home">Home</Link></li>
               <li><Link to="/getAllSpiceMerchants">Spice Merchant Details</Link></li>
               <li><Link to="/employees">Employee Management</Link></li>
+              <li><Link to="/admin-orders">Orders</Link></li> 
             </>
           )}
 
