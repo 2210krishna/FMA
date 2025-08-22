@@ -59,5 +59,11 @@ public class SpiceMerchantService {
     public SpiceMerchant getByEmail(String email){
         return spiceMerchantRepo.findByEmail(email);
     }
+    public boolean vendorExistsByEmail(String email) {
+        return spiceMerchantRepo.existsByEmail(email);
+    }
+    public List<SpiceMerchant> getMerchantsByLocation(String location) {
+        return spiceMerchantRepo.findByLocation(location);
+    }
 
 }

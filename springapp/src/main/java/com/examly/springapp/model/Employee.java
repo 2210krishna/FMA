@@ -17,4 +17,5 @@ public class Employee {
     private String email;      
     private String phone;      
     private String role;   // (Evaluator, Territory Manager, etc.)
+    private String location;
 }

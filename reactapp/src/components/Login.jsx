@@ -46,40 +46,67 @@ export default function Login() {
         <h2 className="login-header">Login</h2>
 
         {error && <p className="login-error">{error}</p>}
-        <form onSubmit={handleSubmit} className="login-form">
-          <table className="login-table">
-            <tbody>
-              <tr>
-                <td><label>Email:</label></td>
-                <td>
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="form-input"
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td><label>Password:</label></td>
-                <td>
-                  <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                    className="form-input"
-                  />
-                </td>
-              </tr>
-            </tbody>
-          </table>
+              <form onSubmit={handleSubmit} className="login-form">
+        <table className="login-table">
+          <tbody>
+            <tr>
+              <td><label>Email:</label></td>
+              <td>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="form-input"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td><label>Password:</label></td>
+              <td>
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  className="form-input"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-          <button type="submit" className="btn btn-login">
-            Login
-          </button>
-        </form>
+        <button type="submit" className="btn btn-login">
+          Login
+        </button>
+
+        <p className="forgot-prompt">
+          <span 
+            className="forgot-link"
+            onClick={() => navigate("/forgot-password")}
+            role="button"
+            tabIndex={0}
+            onKeyDown={e => { if (e.key === 'Enter') navigate("/forgot-password"); }}
+          >
+            Forgot Password?
+          </span>
+        </p>
+
+        <p className="register-prompt">
+          Don't have an account?{" "}
+          <span 
+            className="register-link"
+            onClick={() => navigate("/register")}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => { if (e.key === 'Enter') navigate("/register"); }}
+          >
+            Register
+          </span>
+        </p>
+      </form>
+
+
 
         <div className="back-btn-container">
           <button onClick={() => navigate("/")} className="btn btn-back">

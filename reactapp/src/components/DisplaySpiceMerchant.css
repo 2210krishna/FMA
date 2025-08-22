@@ -2,7 +2,7 @@
 .display-spice-container {
   padding-top: 60px; /* Adjust based on your navbar height */
   max-width: 1100px;
-  margin: 0 auto 4rem auto;
+  margin: 0 auto 3rem auto;
   padding-left: 1rem;
   padding-right: 1rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -40,6 +40,20 @@
   box-shadow: 0 0 8px rgba(255, 152, 0, 0.3);
 }
 
+/* ============================= */
+/* ✅ Table Section Styled Like Employee */
+/* ============================= */
+
+/* Table wrapper for scroll */
+.table-wrapper {
+  max-height: 400px; /* adjust as needed */
+  overflow-y: auto;
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
 /* Table styles */
 .display-spice-container table {
   width: 100%;
@@ -48,7 +62,7 @@
   overflow: hidden;
   background: white;
   font-size: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  min-width: 800px; /* ensures nice width */
 }
 
 /* Table header */
@@ -59,20 +73,30 @@
   text-align: left;
 }
 
+/* Sticky header */
+.display-spice-container thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: linear-gradient(135deg, #ff9800, #ffb347);
+  color: white;
+}
+
 /* Cells */
-.display-spice-container th, .display-spice-container td {
+.display-spice-container th,
+.display-spice-container td {
   padding: 12px 15px;
   border-bottom: 1px solid #e0e0e0;
   vertical-align: middle;
 }
 
-/* Hover highlight on rows */
+/* Hover rows */
 .display-spice-container tbody tr:hover {
   background: #fff3e0;
   cursor: pointer;
 }
 
-/* Remove bottom border on last row */
+/* Remove last border */
 .display-spice-container tbody tr:last-child td {
   border-bottom: none;
 }
@@ -90,22 +114,18 @@
   white-space: nowrap;
   margin-right: 6px;
 }
-
 .display-spice-container button:hover {
   background: linear-gradient(135deg, #388e3c, #5daa39);
   transform: translateY(-2px);
 }
-
-/* Cancel button style */
-.display-spice-container button:nth-child(2) {
+.display-spice-container .cancel-btn {
   background: linear-gradient(135deg, #d32f2f, #e57373);
 }
-
-.display-spice-container button:nth-child(2):hover {
+.display-spice-container .cancel-btn:hover {
   background: linear-gradient(135deg, #9c2424, #bf5f5f);
 }
 
-/* Input fields in edit mode */
+/* Inputs in edit mode */
 .display-spice-container tbody tr input[type="text"] {
   width: 100%;
   padding: 6px 10px;
@@ -114,19 +134,17 @@
   border-radius: 6px;
   transition: border-color 0.3s ease;
 }
-
 .display-spice-container tbody tr input[type="text"]:focus {
   border-color: #ff9800;
   box-shadow: 0 0 6px rgba(255,152,0,0.35);
   outline: none;
 }
 
-/* Responsive styles */
+/* Responsive */
 @media (max-width: 768px) {
   .display-spice-container {
     margin: 2rem 1rem 3rem 1rem;
   }
-
   .display-spice-container table,
   .display-spice-container thead,
   .display-spice-container tbody,
@@ -135,11 +153,9 @@
   .display-spice-container tr {
     display: block;
   }
-
   .display-spice-container thead tr {
     display: none;
   }
-
   .display-spice-container tbody tr {
     margin-bottom: 1.5rem;
     border: 1px solid #ccc;
@@ -147,7 +163,6 @@
     padding: 1rem;
     background: white;
   }
-
   .display-spice-container tbody td {
     position: relative;
     padding-left: 50%;
@@ -155,11 +170,9 @@
     border: none;
     border-bottom: 1px solid #eee;
   }
-
   .display-spice-container tbody td:last-child {
     border-bottom: none;
   }
-
   .display-spice-container tbody td::before {
     content: attr(data-label);
     position: absolute;
@@ -169,5 +182,49 @@
     font-weight: 700;
     color: #ff9800;
     white-space: nowrap;
+  }
+}
+.search-download-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 14px;
+}
+
+/* Make search take up full width and button fixed size */
+.search-download-row .search-input {
+  flex: 1;
+  margin: 0;
+}
+
+.download-btn {
+  background: linear-gradient(135deg, #ff9800, #ffb347);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 22px;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 5px 15px rgba(255, 140, 0, 0.18);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.download-btn:hover {
+  background: linear-gradient(135deg, #e07b00, #ff9c00);
+  transform: translateY(-2px);
+}
+
+/* Responsive: Stack vertically on mobile */
+@media (max-width: 600px) {
+  .search-download-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .download-btn {
+    width: 100%;
   }
 }

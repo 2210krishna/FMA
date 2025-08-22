@@ -1,6 +1,5 @@
 package com.examly.springapp.model;
 
-
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -8,8 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 
 @Data
 @Entity
@@ -18,7 +15,7 @@ import jakarta.persistence.Enumerated;
 public class SpiceMerchant {
   
     @Id
-    @GeneratedValue(strategy =GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String email;
@@ -26,8 +23,5 @@ public class SpiceMerchant {
     private int experience;
     private String storeLocation;
     private String phoneNumber;
-   
-
-
+    private String location;  // Tamil Nadu, Kerala, Karnataka, Andhra, Telangana
 }
-

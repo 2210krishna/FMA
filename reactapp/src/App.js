@@ -20,6 +20,7 @@ import GuestStatus from "./components/GuestStatus";
 import VendorDetails from "./components/VendorDetails";
 import VendorOrders from "./components/VendorOrders";
 import AdminOrders from "./components/AdminOrders";
+import ForgotPassword from "./components/ForgotPassword";
 function AppContent() {
   const location = useLocation();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -27,7 +28,7 @@ function AppContent() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     setIsLoggedIn(!!token);
-  }, []);
+  }, [location]);
 
   return (
     <div className="app">
@@ -37,6 +38,7 @@ function AppContent() {
         <Route path="/" element={<Welcome />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/home" element={
           <ProtectedRoute allowedRoles={["GUEST","VENDOR","ADMIN","TERRITORY_MANAGER","EVALUATOR","FRANCHISE_MANAGER"]}>
             <Home />

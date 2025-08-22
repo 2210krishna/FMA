@@ -1,149 +1,433 @@
-.welcome-container {
+/* Container */
+.welcome-container.new-layout {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  color: #333;
-}
-
-.welcome-header {
-  position: relative; /* for absolute positioning of nav-buttons */
-  text-align: center;
-  padding: 3rem;
+  color: #3b3b3b;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
   background: #fffaf0;
+  border-radius: 12px;
+  box-shadow: 0 7px 25px rgba(0,0,0,0.1);
 }
 
-/* Nav buttons container at top right inside welcome-header */
-.nav-buttons {
-  position: absolute;
-  top: 16px;
-  right: 24px;
+/* Hero section with two columns */
+.hero-section {
   display: flex;
-  gap: 12px;
+  gap: 2rem;
+  padding-bottom: 3rem;
+  align-items: center;
+  border-bottom: 2px solid #ffb347;
+  flex-wrap: wrap;
 }
 
-/* General button base */
-.btn {
-  padding: 14px 28px;
-  margin: 0;
-  font-size: 16px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 700;
-  transition: all 0.35s ease;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-  user-select: none;
-  text-transform: uppercase;
+.hero-text {
+  flex: 1 1 320px;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #4b2e05;
+  margin-bottom: 1rem;
   letter-spacing: 0.05em;
 }
 
-/* Login Button styles */
-.btn-login {
+.hero-text p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  max-width: 420px;
+  color: #6b4b00;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-primary {
   background: linear-gradient(135deg, #ff8c00, #ffb347);
   color: white;
-  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.5);
+  border-radius: 8px;
+  padding: 14px 28px;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 5px 15px rgba(255, 140, 0, 0.6);
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
-
-.btn-login:hover,
-.btn-login:focus {
+.btn-primary:hover {
   background: linear-gradient(135deg, #e07b00, #ff9c00);
-  box-shadow: 0 9px 25px rgba(255, 140, 0, 0.7);
   transform: translateY(-3px);
-  outline: none;
 }
 
-/* Register Button styles */
-.btn-register {
+.btn-secondary {
   background: linear-gradient(135deg, #43a047, #76c043);
   color: white;
-  box-shadow: 0 6px 20px rgba(67, 160, 71, 0.5);
+  border-radius: 8px;
+  padding: 14px 28px;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 5px 15px rgba(67, 160, 71, 0.6);
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
-
-.btn-register:hover,
-.btn-register:focus {
+.btn-secondary:hover {
   background: linear-gradient(135deg, #388e3c, #5daa39);
-  box-shadow: 0 9px 25px rgba(67, 160, 71, 0.7);
   transform: translateY(-3px);
-  outline: none;
 }
 
-.features-section,
-.why-section {
-  padding: 3rem;
-  background: #f5f5f5;
-}
-
-.features-section h2,
-.why-section h2 {
-  color: #4b2e05;
-}
-
-.features-section ul {
-  max-width: 700px;
-  font-size: 16px;
-}
-
-.why-section {
-  background: #fff3e0;
-}
-
-/* Full-width blockquote */
-.testimonial-section {
-  background: #d2691e;
-  color: white;
-  padding: 3rem;
-  text-align: center;
-  font-size: 20px;
-  font-style: italic;
-  font-weight: 500;
-}
-
-/* Image Gallery */
-.image-gallery {
-  padding: 3rem;
-  background: #f5f5f5;
-  text-align: center;
-}
-
-.gallery-grid {
+/* Hero images grid */
+.hero-images {
+  flex: 1 1 380px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 15px;
-  margin-top: 1.5rem;
 }
 
-.gallery-grid img {
+.hero-images img {
   width: 100%;
   height: 180px;
   object-fit: cover;
-  border-radius: 8px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
-
-.gallery-grid img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+.hero-images img:hover {
+  transform: scale(1.1) rotate(2deg);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  z-index: 1;
+  position: relative;
 }
 
-/* CTA Section */
-.cta-section {
-  padding: 3rem;
+/* Features cards section */
+.features-cards {
+  margin: 3rem 0;
   text-align: center;
-  background: #ffebcd;
 }
 
-.btn-start {
-  padding: 14px 28px;
-  font-size: 16px;
-  background: #d2691e;
+.features-cards h2 {
+  font-size: 2.2rem;
+  color: #4b2e05;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.cards-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 2rem;
+  width: 220px;
+  transition: box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.feature-card:hover {
+  box-shadow: 0 9px 30px rgba(0,0,0,0.15);
+}
+
+.feature-card .icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.feature-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #4b2e05;
+}
+
+/* Testimonials carousel */
+.testimonials-section {
+  background: #ffebcd;
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.testimonials-section h2 {
+  font-size: 2rem;
+  color: #4b2e05;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.testimonial-card {
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #6b4b00;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.testimonial-author {
+  margin-top: 1rem;
+  font-weight: 700;
+  color: #4b2e05;
+}
+
+/* Carousel controls */
+.testimonial-controls {
+  margin-top: 1.5rem;
+}
+
+.testimonial-controls button {
+  background: #ffb347;
   border: none;
   color: white;
-  border-radius: 5px;
-  cursor: pointer;
   font-weight: 700;
-  transition: all 0.3s ease;
+  font-size: 1.5rem;
+  padding: 6px 12px;
+  margin: 0 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(255, 179, 71, 0.5);
+  transition: background 0.3s ease;
 }
 
-.btn-start:hover {
-  background: #a65413;
+.testimonial-controls button:hover {
+  background: #e0991e;
 }
+
+/* Call to Action Banner */
+.cta-banner {
+  background: linear-gradient(135deg, #d2691e, #ff9800);
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1.7rem;
+  box-shadow: 0 6px 20px rgba(210, 105, 30, 0.6);
+  margin-bottom: 2rem;
+}
+
+.cta-banner .btn-cta {
+  margin-top: 1.5rem;
+  background: white;
+  color: #d2691e;
+  padding: 14px 36px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.cta-banner .btn-cta:hover {
+  background: #f9f4ed;
+  color: #b65000;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-section {
+    flex-direction: column;
+  }
+  .hero-images {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-top: 1.5rem;
+  }
+  .feature-card {
+    width: 100%;
+    max-width: 280px;
+  }
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+  .features-cards h2,
+  .testimonials-section h2 {
+    font-size: 1.5rem;
+  }
+  .cta-banner {
+    font-size: 1.3rem;
+  }
+}
+/* Franchise Map Section */
+.franchise-map-section {
+  margin: 3rem 0;
+  text-align: center;
+  color: #4b2e05;
+}
+
+.franchise-map-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.map-container {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.south-india-map {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(75, 46, 5, 0.2);
+}
+
+/* Franchise states list - positioned below or alongside the map */
+.franchise-states {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+  margin-top: 1rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+  flex-wrap: wrap;
+  color: #6b4b00;
+}
+
+/* Spice Slider Section */
+.spice-slider-section {
+  margin: 3rem 0;
+  text-align: center;
+  color: #4b2e05;
+}
+
+.spice-slider-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.spice-slider {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: white;
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  max-width: 400px;
+  margin: 0 auto;
+  user-select: none;
+}
+
+.spice-display {
+  font-size: 1.6rem;
+  font-weight: 700;
+  min-width: 160px;
+  padding: 0.5rem 1rem;
+  background: #ffebcd;
+  border-radius: 12px;
+  box-shadow: inset 0 0 10px rgba(255, 179, 71, 0.3);
+  color: #d2691e;
+  transition: background 0.3s ease;
+}
+
+.slider-btn {
+  background: linear-gradient(135deg, #d2691e, #ff9800);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  font-weight: 900;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(210, 105, 30, 0.6);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.slider-btn:hover {
+  background: linear-gradient(135deg, #bb5a00, #e08200);
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments for Map and Slider */
+@media (max-width: 700px) {
+  .franchise-states {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.1rem;
+  }
+  .map-container {
+    max-width: 100%;
+  }
+  .south-india-map {
+    max-width: 100%;
+  }
+  .spice-slider {
+    max-width: 100%;
+    padding: 1rem;
+  }
+  .spice-display {
+    font-size: 1.3rem;
+    min-width: 120px;
+  }
+}
+
+.contact-info-section {
+  margin-top: 4rem;
+  padding: 2rem;
+  background: #fffaf0;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  text-align: center;
+  color: #4b2e05;
+}
+
+.contact-info-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.contact-cards {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 250px;
+  background: white;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.contact-icon {
+  font-size: 2.5rem;
+  color: #ff9800;
+}
+

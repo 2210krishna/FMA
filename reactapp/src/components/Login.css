@@ -112,4 +112,42 @@ html, body {
     from { opacity: 0; transform: translateY(30px);}
     to { opacity: 1; transform: translateY(0);}
   }
+  .register-prompt {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+    color: #4b2e05;
+  }
+  
+  .register-link {
+    color: #ff9800;
+    cursor: pointer;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+  
+  .register-link:hover,
+  .register-link:focus {
+    color: #e07b00;
+    outline: none;
+  }
+  .forgot-prompt {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #555;
+    text-align: center;
+  }
+  
+  .forgot-link {
+    color: #ff9800;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+  
+  .forgot-link:hover,
+  .forgot-link:focus {
+    color: #e07b00;
+    outline: none;
+  }
   

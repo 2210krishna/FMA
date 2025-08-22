@@ -81,6 +81,42 @@
     background: linear-gradient(135deg, #388e3c, #5daa39);
     transform: translateY(-2px);
   }
+  .delete-btn,
+.edit-btn {
+  padding: 5px 12px;
+  background: linear-gradient(135deg, #e53935, #ef5350);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-right: 8px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.delete-btn {
+  background: linear-gradient(135deg, #e53935, #ef5350);
+}
+
+.delete-btn:hover {
+  background: linear-gradient(135deg, #b71c1c, #d32f2f);
+  transform: translateY(-2px);
+}
+
+.edit-btn {
+  background: linear-gradient(135deg, rgb(21, 90, 6), #4caf50);
+}
+
+.edit-btn:hover {
+  background: linear-gradient(135deg, #1c7a06, #388e3c);
+  transform: translateY(-2px);
+}
+
+  
+  
   
   /* Table styles */
   .employee-container table {
@@ -170,4 +206,117 @@
       white-space: nowrap;
     }
   }
-  
+  /* ============================= */
+/* ✅ Scrollable table + sticky   */
+/* ============================= */
+
+/* Wrapper for scroll */
+.table-wrapper {
+  max-height: 400px;            /* adjust for vertical scroll */
+  overflow-y: auto;
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Sticky header */
+.employee-container table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+/* Sticky first column (ID) */
+.sticky-col {
+  position: sticky;
+  left: 0;
+  background: #fff; /* match table row background */
+  z-index: 3;
+  box-shadow: 2px 0 3px rgba(0,0,0,0.05);
+}
+.action-buttons {
+  display: flex;
+  gap: 8px;          /* space between buttons */
+  white-space: nowrap;
+  align-items: center;
+}
+
+/* Container to align Role and Location side by side */
+.role-location-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 1rem;
+}
+
+/* Ensure selects in the .role-location-row keep the same styling and alignment */
+.role-location-row select {
+  flex: 1;
+  min-width: 160px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1.5px solid #ccc;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.role-location-row select:focus {
+  outline: none;
+  border-color: #ff9800;
+  box-shadow: 0 0 8px rgba(255, 152, 0, 0.3);
+}
+
+/* On smaller screens, stack them vertically */
+@media (max-width: 500px) {
+  .role-location-row {
+    flex-direction: column;
+  }
+  .role-location-row select {
+    width: 100%;
+  }
+}
+.search-download-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 14px;
+}
+
+/* Make search take up full width and button fixed size */
+.search-download-row .search-input {
+  flex: 1;
+  margin: 0;
+}
+
+.download-btn {
+  background: linear-gradient(135deg, #ff9800, #ffb347);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 22px;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 5px 15px rgba(255, 140, 0, 0.18);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.download-btn:hover {
+  background: linear-gradient(135deg, #e07b00, #ff9c00);
+  transform: translateY(-2px);
+}
+
+/* Responsive: Stack vertically on mobile */
+@media (max-width: 600px) {
+  .search-download-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .download-btn {
+    width: 100%;
+  }
+}
+

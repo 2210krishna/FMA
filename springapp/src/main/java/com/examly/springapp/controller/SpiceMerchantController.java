@@ -79,6 +79,9 @@ public class SpiceMerchantController {
         return spiceMerchantService.getPaginatedpages(pageNo,pageSize,sortBy);
 
      }
-    
+     @GetMapping("/getSpiceMerchantsByLocation/{location}")
+    public List<SpiceMerchant> getSpiceMerchantsByLocation(@PathVariable String location) {
+        return spiceMerchantService.getMerchantsByLocation(location);
+    }
 
 }

@@ -104,4 +104,27 @@
       white-space: nowrap;
     }
   }
-  
+  /* Action buttons flex (horizontal always) */
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/* Approve button is green (already present). Reject is red: */
+.reject-btn {
+  background: linear-gradient(135deg, #e53935, #ef5350);
+}
+.reject-btn:hover {
+  background: linear-gradient(135deg, #b71c1c, #d32f2f);
+  transform: translateY(-2px);
+}
+
+/* For mobile, keep buttons in row, allow wrapping if space */
+@media (max-width: 768px) {
+  .action-buttons {
+    flex-wrap: wrap;
+  }
+}

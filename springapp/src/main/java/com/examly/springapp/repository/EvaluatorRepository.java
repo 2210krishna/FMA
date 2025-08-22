@@ -10,4 +10,6 @@ public interface EvaluatorRepository extends JpaRepository<Evaluator, Integer> {
     List<Evaluator> findByStatus(Evaluator.Status status);
     List<Evaluator> findByGuestId(Long guestId);
     Evaluator findByEmail(String email); 
+    List<Evaluator> findByLocationAndStatus(String location, Evaluator.Status status);
+
 }

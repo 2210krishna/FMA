@@ -39,4 +39,7 @@ public class EvaluatorService {
     public Evaluator getByEmail(String email){
         return evaluatorRepository.findByEmail(email);
     }
+    public List<Evaluator> getPendingByLocation(String location) {
+        return evaluatorRepository.findByLocationAndStatus(location, Evaluator.Status.SUBMITTED);
+    }
 }

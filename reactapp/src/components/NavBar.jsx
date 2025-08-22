@@ -4,12 +4,14 @@ import "./NavBar.css";
 
 export default function NavBar() {
   const role = localStorage.getItem("role");
+  const email = localStorage.getItem("email");
   const navigate = useNavigate();
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("role");
     localStorage.removeItem("userId");
+    localStorage.removeItem("email");
     navigate("/");
   };
 
@@ -73,6 +75,10 @@ export default function NavBar() {
               <li><Link to="/getAllSpiceMerchants">Spice Merchant Details</Link></li>
             </>
           )}
+           {email && (
+            <li className="navbar-email">Hi, {email}</li>
+          )}
+
 
           <li>
             <button className="logout-btn" onClick={handleLogout}>

@@ -36,4 +36,8 @@ public class TerritoryService {
     public Territory getByEmail(String email){
         return territoryRepository.findByEmail(email);
     }
+    public List<Territory> getPendingByLocation(String location) {
+        return territoryRepository.findByLocationAndStatus(location, Territory.SpiceStatus.PENDING);
+    }
+    
 }

@@ -15,38 +15,58 @@ export default function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (password !== confirmPassword) {
-      setError("Passwords do not match");
+  
+    // Check if name length is greater than 2 characters
+    if (name.trim().length <= 2) {
+      setError("Name must be more than 2 characters");
+      setSuccess("");
       return;
     }
-
+  
+    // Password complexity check: must contain at least one uppercase letter and one number
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d).+$/;
+    if (!passwordRegex.test(password)) {
+      setError("Password must contain at least one uppercase letter and one number");
+      setSuccess("");
+      return;
+    }
+  
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      setSuccess("");
+      return;
+    }
+  
     try {
       const res = await fetch("http://localhost:5001/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password, role }),
       });
-
+  
       const data = await res.json();
-
+  
       if (res.ok) {
         setSuccess(data.message || "✅ Registration successful!");
         setError("");
-
+  
         if (data.token) {
           localStorage.setItem("token", data.token);
           localStorage.setItem("role", role);
+          localStorage.setItem("name", name);
         }
-
+  
         setTimeout(() => navigate("/home"), 1500);
       } else {
         setError(data.message || "Registration failed");
+        setSuccess("");
       }
     } catch (err) {
       setError("Something went wrong. Please try again.");
+      setSuccess("");
     }
   };
+  
 
   return (
     <div className="register-page">
